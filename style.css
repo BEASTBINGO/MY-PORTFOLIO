@@ -1,0 +1,176 @@
+/* Theme variables */
+:root {
+  --bg: #eaf7ef;
+  --bg-accent: #dbf1e4;
+  --text: #23412d;
+  --muted: #2d5d34;
+  --primary: #386641;
+  --primary-strong: #2b4d31;
+  --accent: #78C841;
+  --card-bg: #ffffff;
+  --card-hover: #f2faf5;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.18);
+  --nav-bg: linear-gradient(90deg, #386641 0%, #2b4d31 100%);
+  --link: #0f5132;
+}
+
+/* Dark theme overrides */
+.dark-theme {
+  --bg: #0f1b12;
+  --bg-accent: #13251a;
+  --text: #d6f5d6;
+  --muted: #a9dbb6;
+  --primary: #70d38a;
+  --primary-strong: #59b773;
+  --accent: #78C841;
+  --card-bg: #162417;
+  --card-hover: #1c2b1f;
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.55);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --nav-bg: linear-gradient(90deg, #102a19 0%, #0c2114 100%);
+  --link: #baf7c6;
+}
+
+/* Base */
+html, body {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(1200px 600px at -10% -20%, var(--bg-accent), var(--bg));
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  scroll-behavior: smooth;
+  transition: background 300ms ease, color 300ms ease;
+}
+
+a { color: var(--link); }
+a:hover { color: var(--primary); }
+
+/* Navigation */
+header {
+  background: var(--primary-strong);
+}
+
+nav {
+  background: var(--nav-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 24px;
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 16px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 200ms ease;
+}
+
+nav a:hover { opacity: 0.85; }
+
+.right {
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 150ms ease, background 200ms ease, color 200ms ease;
+}
+
+.theme-toggle:hover { transform: translateY(-1px); }
+.theme-toggle:active { transform: translateY(0); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Sections */
+.section-title {
+  font-weight: 800;
+  color: var(--muted);
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 4px;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+/* Cards */
+.skill-card, .goal-card, .contact-box {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.skill-card:hover, .goal-card:hover, .contact-box:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  background: var(--card-hover);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* Typing effect caret */
+.typing {
+  border-right: 2px solid var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Utility */
+.container-narrow { max-width: 980px; }
+.highlight { color: var(--primary); }
+
+/* Contact buttons override to keep brand colors */
+.contact-buttons a { color: #fff; text-decoration: none; font-weight: 700; }
+.contact-buttons .whatsapp { background: #25D366; }
+.contact-buttons .instagram { background: #E1306C; }
+
+/* Scroll to top button (JS-created) tune colors per theme) */
+.dark-theme #topBtn { background: var(--primary-strong) !important; color: #ffffff !important; }
+
